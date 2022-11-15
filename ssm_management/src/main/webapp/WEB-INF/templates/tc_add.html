@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>申请新课程</title>
+    <link rel="stylesheet" th:href="@{/static/css/index_work.css}">
+</head>
+<body>
+<form th:action="@{/tc/add}" method="post">
+    <input type="hidden" name="_method" value="put">
+    <input type="hidden" name="teaId" th:value="${teaId}">
+    <input type="hidden" name="progress" th:value="未处理">
+    <table>
+        <tr>
+            <th colspan="2">申请新课程</th>
+        </tr>
+        <tr>
+            <td>课程号</td>
+            <td>
+                <input type="text" name="cno">
+            </td>
+        </tr>
+
+        <tr>
+            <td colspan="2">
+                <input type="submit" value="申请">
+            </td>
+        </tr>
+    </table>
+</form>
+</body>
+</html>

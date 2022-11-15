@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>修改选课信息</title>
+    <link rel="stylesheet" th:href="@{/static/css/index_work.css}">
+</head>
+<body>
+<form th:action="@{/sc/update}" method="post">
+    <input type="hidden" name="_method" value="put">
+    <input type="hidden" name="sno" th:value="${sc.sno}">
+    <input type="hidden" name="cno" th:value="${sc.cno}">
+    <table>
+        <tr>
+            <th colspan="2">修改选课信息</th>
+        </tr>
+        <tr>
+            <td>Grade</td>
+            <td>
+                <input type="text" name="grade" th:value="${sc.grade}">
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2">
+                <input type="submit" value="修改">
+            </td>
+        </tr>
+    </table>
+</form>
+</body>
+</html>

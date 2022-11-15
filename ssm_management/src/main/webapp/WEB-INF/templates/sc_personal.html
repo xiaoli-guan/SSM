@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>我的课程</title>
+    <link rel="stylesheet" th:href="@{/static/css/index_work.css}">
+</head>
+<body>
+<form th:action="@{/sc/student/add}" method="post">
+    <div style="text-align: right">
+        <input type="hidden" name="sno" th:value="${sno}">
+        <input type="text" th:text="Cno" name="cno">
+        <input type="submit" value="添加">
+    </div>
+</form>
+<table>
+    <tr>
+        <th colspan="2"></th>
+    </tr>
+    <tr>
+        <th>课程号</th>
+        <th>成绩</th>
+    </tr>
+    <tr th:each="sc : ${list}">
+        <td th:text="${sc.cno}"></td>
+        <td th:text="${sc.grade}"></td>
+    </tr>
+</table>
+</body>
+</html>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>待处理的课程</title>
+    <link rel="stylesheet" th:href="@{/static/css/index_work2.css}">
+</head>
+<body>
+<table>
+    <tr>
+        <th colspan="3">待处理的课程</th>
+    </tr>
+    <tr>
+        <th>申请教师</th>
+        <th>课程号</th>
+        <th>操作</th>
+    </tr>
+    <tr th:each="tc : ${list}">
+        <td th:text="${tc.teaId}"></td>
+        <td th:text="${tc.cno}"></td>
+        <td>
+            <a th:href="@{'/tc/admin/同意/'+${tc.teaId}+'/'+${tc.cno}}">同意</a>
+            <a th:href="@{'/tc/admin/拒绝/'+${tc.teaId}+'/'+${tc.cno}}">拒绝</a>
+        </td>
+    </tr>
+</table>
+</body>
+</html>

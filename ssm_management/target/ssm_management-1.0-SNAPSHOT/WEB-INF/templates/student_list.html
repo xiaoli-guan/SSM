@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>学生表</title>
+    <link rel="stylesheet" th:href="@{/static/css/index_work.css}">
+</head>
+<body>
+<button>
+    <a th:href="@{/index}">返回首页</a><br>
+</button>
+<div style="text-align: right;">
+    <form id="select" th:action="@{/student/1}" method="get">
+        <p>
+            <input type="text" name="Sno"  placeholder="学号Sno">
+            <input type="text" name="Sname"  placeholder="姓名Sname">
+            <input type="text" name="Sage"  placeholder="年龄Sage">
+            <input type="text" name="Sdept"  placeholder="所在系Sdept">
+            <input type="radio" name="Ssex"  value="男">男
+            <input type="radio" name="Ssex"  value="女">女
+        </p>
+        <input type="submit" value="查找"><br>
+    </form>
+</div>
+
+<table>
+    <tr>
+        <th colspan="6">学生列表</th>
+    </tr>
+    <tr>
+        <th>学号</th>
+        <th>姓名</th>
+        <th>年龄</th>
+        <th>性别</th>
+        <th>所在系</th>
+        <th>操作(<a th:href="@{/student/to/add}">添加</a>)</th>
+    </tr>
+    <tr th:each="student : ${page.list}">
+        <td th:text="${student.Sno}"></td>
+        <td th:text="${student.Sname}"></td>
+        <td th:text="${student.Sage}"></td>
+        <td th:text="${student.Ssex}"></td>
+        <td th:text="${student.Sdept}"></td>
+        <td>
+            <a th:href="@{'/student/delete/'+${student.Sno}}">删除</a>
+            <a th:href="@{'/student/update/'+${student.Sno}}">修改</a>
+        </td>
+    </tr>
+</table>
+
+
+<div style="text-align: center;">
+    <a th:if="${page.hasPreviousPage}" th:href="@{/student/1}">首页</a>
+    <a th:if="${page.hasPreviousPage}" th:href="@{'/student/'+${page.prePage}}">上一页</a>
+    <span th:each="num : ${page.navigatepageNums}">
+        <a th:if="${page.pageNum == num}" style="color: red;" th:href="@{'/student/'+${num}}" th:text="'['+${num}+']'"></a>
+        <a th:if="${page.pageNum != num}" th:href="@{'/student/'+${num}}" th:text="${num}"></a>
+    </span>
+    <a th:if="${page.hasNextPage}" th:href="@{'/student/'+${page.nextPage}}">下一页</a>
+    <a th:if="${page.hasNextPage}" th:href="@{'/student/'+${page.pages}}">末页</a>
+</div>
+</body>
+</html>

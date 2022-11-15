@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>我的信息</title>
+    <link rel="stylesheet" th:href="@{/static/css/index_work.css}">
+</head>
+<body>
+<table>
+    <tr>
+        <th colspan="6">我的信息</th>
+    </tr>
+    <tr>
+        <th>学号</th>
+        <th>姓名</th>
+        <th>年龄</th>
+        <th>性别</th>
+        <th>所在系</th>
+        <th>操作</th>
+    </tr>
+    <tr>
+        <td th:text="${student.Sno}"></td>
+        <td th:text="${student.Sname}"></td>
+        <td th:text="${student.Sage}"></td>
+        <td th:text="${student.Ssex}"></td>
+        <td th:text="${student.Sdept}"></td>
+        <td>
+            <a th:href="@{'/student/personal/update/'+${student.Sno}}">修改</a>
+        </td>
+    </tr>
+</table>
+</body>
+</html>

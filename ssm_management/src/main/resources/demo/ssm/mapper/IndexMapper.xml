@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="demo.ssm.mapper.IndexMapper">
+
+    <!--boolean authenticateUser(@Param("userid") Integer userid, @Param("userpassword") String userpassword);-->
+    <select id="authenticateUser" resultType="User">
+        select * from user where id = #{userid} and password = #{userpassword}
+    </select>
+
+</mapper>

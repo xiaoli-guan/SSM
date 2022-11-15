@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="demo.ssm.mapper.StudentMapper">
+
+    <!--List<Student> getAllStudent();-->
+    <select id="getAllStudent" resultType="Student">
+        select * from student
+    </select>
+
+    <!--void saveStudent(Student student);-->
+    <insert id="saveStudent">
+        insert into student values(#{Sno},#{Sname},#{Sage},#{Ssex},#{Sdept})
+    </insert>
+
+    <!--Student getStudentBySno(@Param("Sno") Integer Sno);-->
+    <select id="getStudentBySno" resultType="Student">
+        select * from student where Sno = #{Sno}
+    </select>
+
+    <!--void updateStudent(Student student);-->
+    <update id="updateStudent">
+        update student set Sname = #{Sname},Sage = #{Sage},Ssex=#{Ssex},Sdept=#{Sdept} where Sno = #{Sno}
+    </update>
+
+    <!--void deleteStudent(@Param("Sno") Integer sno);-->
+    <delete id="deleteStudent">
+        delete from student where Sno = #{Sno}
+    </delete>
+
+    <!--List<Student> getStudentByStudentLike(Student student);-->
+    <select id="getStudentByStudentLike" resultType="Student">
+        select * from student
+        <where>
+            <if test="Sno != '' and Sno != null">
+                Sno like '%${Sno}%'
+            </if>
+            <if test="Sname != '' and Sname != null">
+                and Sname like '%${Sname}%'
+            </if>
+            <if test="Sage != '' and Sage != null">
+                and Sage like '%${Sage}%'
+            </if>
+            <if test="Ssex != '' and Ssex != null">
+                and Ssex like '%${Ssex}%'
+            </if>
+            <if test="Sdept != '' and Sdept != null">
+                and Sdept like '%${Sdept}%'
+            </if>
+        </where>
+    </select>
+</mapper>

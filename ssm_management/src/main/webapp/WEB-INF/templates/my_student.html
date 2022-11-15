@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>我的学生</title>
+    <link rel="stylesheet" th:href="@{/static/css/index_work.css}">
+</head>
+<body>
+<table>
+    <tr>
+        <th colspan="5">我的学生</th>
+    </tr>
+    <tr>
+        <th>学号</th>
+        <th>成绩</th>
+        <th>操作</th>
+    </tr>
+    <tr th:each="sc : ${page.list}">
+        <td th:text="${sc.sno}"></td>
+        <td th:text="${sc.grade}"></td>
+        <td>
+            <a th:href="@{'/sc/delete/'+${sc.sno}+'/'+${sc.cno}}">删除</a>
+            <a th:href="@{'/sc/update/'+${sc.sno}+'/'+${sc.cno}}">修改</a>
+        </td>
+    </tr>
+</table>
+
+<div style="text-align: center;">
+    <a th:if="${page.hasPreviousPage}" th:href="@{'/teacher/course/'+${cno}+'/1'}">首页</a>
+    <a th:if="${page.hasPreviousPage}" th:href="@{'/teacher/course/'+${cno}+'/'+${page.prePage}}">上一页</a>
+    <span th:each="num : ${page.navigatepageNums}">
+        <a th:if="${page.pageNum == num}" style="color: red;" th:href="@{'/teacher/course/'+${cno}+'/'+${num}}" th:text="'['+${num}+']'"></a>
+        <a th:if="${page.pageNum != num}" th:href="@{'/teacher/course/'+${cno}+'/'+${num}}" th:text="${num}"></a>
+    </span>
+    <a th:if="${page.hasNextPage}" th:href="@{'/teacher/course/'+${cno}+'/'+${page.nextPage}}">下一页</a>
+    <a th:if="${page.hasNextPage}" th:href="@{'/teacher/course/'+${cno}+'/'+${page.pages}}">末页</a>
+</div>
+</body>
+</html>

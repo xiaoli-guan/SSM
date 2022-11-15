@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>添加教师</title>
+    <link rel="stylesheet" th:href="@{/static/css/index_work.css}">
+</head>
+<body>
+<form th:action="@{/teacher/add}" method="post">
+    <table>
+        <tr>
+            <th colspan="2">添加教师信息</th>
+        </tr>
+        <tr>
+            <td>职工号</td>
+            <td>
+                <input type="text" name = "teaId">
+            </td>
+        </tr>
+        <tr>
+            <td>姓名</td>
+            <td>
+                <input type="text" name = "teaName">
+            </td>
+        </tr>
+        <tr>
+            <td>年龄</td>
+            <td>
+                <input type="text" name="teaAge">
+            </td>
+        </tr>
+        <tr>
+            <td>手机号码</td>
+            <td>
+                <input type="text" name = "teaTel">
+            </td>
+        </tr>
+        <tr>
+            <td>所属院系</td>
+            <td>
+                <input type="text" name = "teaDept">
+            </td>
+        </tr>
+        <tr>
+            <td>性别</td>
+            <td>
+                <input type="radio" name = "teaSex" value="男">男
+                <input type="radio" name = "teaSex" value="女">女
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2">
+                <input type="submit" value="添加">
+            </td>
+        </tr>
+    </table>
+</form>
+</body>
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>修改我的信息</title>
+    <link rel="stylesheet" th:href="@{/static/css/index_work.css}">
+</head>
+<body>
+<form th:action="@{/student/personal/update}" method="post">
+    <input type="hidden" name="_method" value="put">
+    <input type="hidden" name="Sno" th:value="${student.Sno}">
+    <input type="hidden" name="Sdept" th:value="${student.Sdept}">
+    <table>
+        <tr>
+            <th colspan="2">修改我的信息</th>
+        </tr>
+        <tr>
+            <td>Sname</td>
+            <td>
+                <input type="text" name="Sname" th:value="${student.Sname}">
+            </td>
+        </tr>
+        <tr>
+            <td>Sage</td>
+            <td>
+                <input type="text" name="Sage" th:value="${student.Sage}">
+            </td>
+        </tr>
+        <tr>
+            <td>Ssex</td>
+            <td>
+                <input type="radio" name="Ssex" value="男" th:field="${student.Ssex}">男
+                <input type="radio" name="Ssex" value="女" th:field="${student.Ssex}">女
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2">
+                <input type="submit" value="修改">
+            </td>
+        </tr>
+    </table>
+</form>
+</body>
+</html>

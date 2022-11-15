@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>首页</title>
+    <link rel="stylesheet" th:href="@{/static/css/index_work2.css}">
+</head>
+<body>
+<div style="text-align: right">
+    <button>
+        <a th:href="@{/}">退出登录</a><br>
+    </button>
+</div>
+<table>
+    <tr>
+        <th th:text="'欢迎使用,'+${user.username}+'(管理员)'"></th>
+    </tr><br>
+    <tr>
+        <th>
+            <button>
+                <a th:href="@{/student/1}">学生信息</a><br>
+            </button>
+        </th>
+    </tr>
+    <tr>
+        <th>
+            <button>
+                <a th:href="@{/teacher/1}">教师信息</a><br>
+            </button>
+        </th>
+    </tr>
+    <tr>
+        <th>
+            <button>
+                <a th:href="@{/course/1}">课程信息</a><br>
+            </button>
+        </th>
+    </tr>
+    <tr>
+        <th>
+            <button>
+                <a th:href="@{/sc/1}">选课信息</a><br>
+            </button>
+        </th>
+    </tr>
+    <tr>
+        <th>
+            <button>
+                <a th:href="@{/tc/admin}">查看待处理的选课申请</a>
+            </button>
+        </th>
+    </tr>
+</table>
+</body>
+</html>

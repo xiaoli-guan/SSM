@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>修改我的信息</title>
+    <link rel="stylesheet" th:href="@{/static/css/index_work.css}">
+</head>
+<body>
+<form th:action="@{/teacher/personal/update}" method="post">
+    <input type="hidden" name="_method" value="put">
+    <input type="hidden" name="teaId" th:value="${teacher.teaId}">
+    <input type="hidden" name="teaDept" th:value="${teacher.teaDept}">
+    <table>
+        <tr>
+            <th colspan="2">修改我的信息</th>
+        </tr>
+        <tr>
+            <td>姓名</td>
+            <td>
+                <input type="text" name="teaName" th:value="${teacher.teaName}">
+            </td>
+        </tr>
+        <tr>
+            <td>年龄</td>
+            <td>
+                <input type="text" name="teaAge" th:value="${teacher.teaAge}">
+            </td>
+        </tr>
+        <tr>
+            <td>联系方式</td>
+            <td>
+                <input type="text" name="teaTel" th:value="${teacher.teaTel}">
+            </td>
+        </tr>
+        <tr>
+            <td>性别</td>
+            <td>
+                <input type="radio" name="teaSex" value="男" th:field="${teacher.teaSex}">男
+                <input type="radio" name="teaSex" value="女" th:field="${teacher.teaSex}">女
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2">
+                <input type="submit" value="修改">
+            </td>
+        </tr>
+    </table>
+</form>
+</body>
+</html>

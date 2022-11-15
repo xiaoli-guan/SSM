@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>修改课程信息</title>
+    <link rel="stylesheet" th:href="@{/static/css/index_work.css}">
+</head>
+<body>
+<form th:action="@{/course/update}" method="post">
+    <input type="hidden" name="_method" value="put">
+    <input type="hidden" name="cno" th:value="${course.cno}">
+    <table>
+        <tr>
+            <th colspan="2">修改课程信息</th>
+        </tr>
+        <tr>
+            <td>Cname</td>
+            <td>
+                <input type="text" name="cname" th:value="${course.cname}">
+            </td>
+        </tr>
+        <tr>
+            <td>Cpno</td>
+            <td>
+                <input type="text" name="cpno" th:value="${course.cpno}">
+            </td>
+        </tr>
+        <tr>
+            <td>Ccredit</td>
+            <td>
+                <input type="text" name="Ccredit" th:value="${course.ccredit}">
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2">
+                <input type="submit" value="修改">
+            </td>
+        </tr>
+    </table>
+</form>
+</body>
+</html>
