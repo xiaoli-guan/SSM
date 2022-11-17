@@ -1,6 +1,6 @@
 # SSM
-基于SSM的学生选课系统
-[TOC]
+<center>基于SSM的学生选课系统</center>
+@[TOC](目录)
 
 
 
